@@ -33,13 +33,13 @@ export class CharacterService {
       });
   }
   // Update character, takes a Character Object as parameter
-  editTodo(character: Character) {
+  editCharacter(character: Character) {
     const editUrl = `${this.characterUrl}`;
     // returns the observable of http put request
     return this.http.put(editUrl, character);
   }
 
-  deleteTodo(id: string): any {
+  deleteCharacter(id: string): any {
     // Delete the object by the id
     const deleteUrl = `${this.characterUrl}/${id}`;
     return this.http.delete(deleteUrl)
