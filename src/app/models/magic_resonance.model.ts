@@ -1,4 +1,4 @@
-class Attributes {
+class Magic_Resonance {
   _id: string;
   awakened_type: string;
   bonus_skill: Object;
