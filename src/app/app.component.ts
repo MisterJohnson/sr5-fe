@@ -59,7 +59,7 @@ export class AppComponent implements OnInit {
   }
 
   doneCharacter(character: Character) {
-    character.date = new Date();
+    character.date_creation = new Date();
     this.characterService.editCharacter(character).subscribe(res => {
       console.log('Update Succesful');
     }, err => {
