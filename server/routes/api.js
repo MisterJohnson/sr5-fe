@@ -5,7 +5,7 @@ const ObjectID = require('mongodb').ObjectID;
 
 // Connect
 const connection = (closure) => {
-  return MongoClient.connect('mongodb://simonlepage:Jackpot50@shadowrun-shard-00-00-g1ocb.mongodb.net:27017,shadowrun-shard-00-01-g1ocb.mongodb.net:27017,shadowrun-shard-00-02-g1ocb.mongodb.net:27017/sr5?ssl=true&replicaSet=shadowrun-shard-0&authSource=admin', (err, db) => {
+  return MongoClient.connect('mongodb+srv://simonlepage:Jackpot50@shadowrun-g1ocb.mongodb.net/sr5', (err, db) => {
     if (err) return console.log(err);
 
     closure(db);
@@ -32,8 +32,8 @@ router.get('/characters', (req, res) => {
     db.collection('characters')
       .find()
       .toArray()
-      .then((characs) => {
-        response.data = characs;
+      .then((character) => {
+        response.data = character;
         res.json(response);
       })
       .catch((err) => {

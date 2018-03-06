@@ -1,73 +1,7 @@
 <div class="row">
-  <div class="col-md-2"></div>
-  <div class="col-md-8">
+  <h1>Our MongoDB is Working!</h1>
 
-    <div class="characters" *ngIf="charactersList">
-      <table class="table">
-        <thead class="h">
-        <tr class="h">
-          <th class="h">Name</th>
-          <th class="h">Alias</th>
-          <th class="h">Background</th>
-          <th class="h">Ages</th>
-          <th class="h">Date</th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr class="todo" (dblclick)="editCharacter(character)" *ngFor="let character of charactersList">
-
-          <ng-container *ngIf="!editCharacters.includes(character); else editCH">
-            <td>{{character.name}}</td>
-            <td>{{character.alias}}</td>
-            <td>{{character.background}}</td>
-            <td>{{character.ages}}</td>
-            <td>{{character.date | date}}</td>
-          </ng-container>
-
-          <ng-template #editCH>
-            <td><input type="text" name="title" id="name" (keypress)="submitCharacter($event, character)" [(ngModel)]="character.name" placeholder="Name" class="form-control"></td>
-            <td><input type="text" name="background" id="background" (keypress)="submitCharacter($event, character)" [(ngModel)]="character.background" placeholder="Background"
-                       class="form-control"></td>
-            <td>{{character.date | date}}</td>
-            <td>
-              <input type="text" name="alias" id="alias" (keypress)="submitCharacter($event, character)" [(ngModel)]="character.alias" placeholder="Alias" class="form-control">
-            </td>
-          </ng-template>
-
-          <td class="o">
-            <button class="btn btn-success" (click)="doneCharacter(character)">
-              <i  class="fa fa-check"></i>
-            </button>
-            <button class="btn btn-primary" (click)="editCharacter(character)">
-              <i  class="fa fa-pencil"></i>
-            </button>
-            <button class="btn btn-danger" (click)="deleteCharacter(character)">
-              <i  class="fa fa-trash"></i>
-            </button>
-          </td>
-
-        </tr>
-        </tbody>
-      </table>
-    </div>
-
-
-    <form>
-      <div class="form-row">
-
-        <div class="col-md-5">
-          <input type="text" name="name" id="name" [(ngModel)]="newCharacter.name" placeholder="Name" class="form-control">
-        </div>
-        <div class="col-md-5">
-          <input type="text" name="background" id="background" [(ngModel)]="newCharacter.background" placeholder="Background" class="form-control">
-        </div>
-        <div class="col-md-2">
-          <button type="submit" class="btn btn-primary" (click)="create()">Add</button>
-        </div>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-2">
-
-  </div>
+  <ul>
+    <li *ngFor="let character of characters">{{ character.name }}</li>
+  </ul>
 </div>
